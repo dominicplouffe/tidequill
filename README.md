@@ -80,5 +80,7 @@ bun run typecheck   # tsc --noEmit
 
 ## License
 
-MIT, see [LICENSE](LICENSE). (The requirements propose FSL-1.1-Apache-2.0 for the core; the
-repository currently carries MIT.)
+[Functional Source License 1.1, Apache 2.0 Future License](LICENSE.md) (`FSL-1.1-ALv2`,
+formerly called FSL-1.1-Apache-2.0). Free to self-host and modify for any use
+except offering a competing product or service; each release becomes Apache 2.0
+two years after it is published.

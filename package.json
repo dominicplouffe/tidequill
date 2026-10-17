@@ -4,7 +4,7 @@
   "description": "Your site, writing itself. An agent-run CMS that ships pre-rendered HTML.",
   "type": "module",
   "private": true,
-  "license": "MIT",
+  "license": "FSL-1.1-ALv2",
   "bin": {
     "tq": "./src/cli/main.ts"
   },
