@@ -1,0 +1,30 @@
+# Caddy in front of Tidequill: automatic HTTPS for the admin and for every
+# site's domain. Certificates for site domains are issued on demand, but only
+# for hostnames Tidequill knows (it answers /api/tls/allowed?domain=...).
+#
+# Environment:
+#   TQ_ADMIN_HOST   the admin's hostname, e.g. admin.example.com (must also be in TQ_ADMIN_HOSTS)
+#   TQ_UPSTREAM     where Tidequill listens (default localhost:8080; "tidequill:8080" in docker compose)
+#
+# To get certificate expiry notices, add `email you@example.com` to the global block.
+
+{
+	on_demand_tls {
+		ask http://{$TQ_UPSTREAM:localhost:8080}/api/tls/allowed
+	}
+}
+
+# The admin, API and MCP endpoint.
+{$TQ_ADMIN_HOST:admin.localhost} {
+	encode zstd gzip
+	reverse_proxy {$TQ_UPSTREAM:localhost:8080}
+}
+
+# Every site, on whatever domain points here.
+https:// {
+	tls {
+		on_demand
+	}
+	encode zstd gzip
+	reverse_proxy {$TQ_UPSTREAM:localhost:8080}
+}

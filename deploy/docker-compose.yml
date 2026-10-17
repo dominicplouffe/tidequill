@@ -1,0 +1,39 @@
+# Tidequill behind Caddy, with automatic HTTPS.
+#   cp deploy/docker-compose.yml compose.yml   (or run from the repo root with -f deploy/docker-compose.yml)
+#   TQ_ADMIN_HOST=admin.example.com docker compose -f deploy/docker-compose.yml up -d
+services:
+  tidequill:
+    build: ..
+    image: tidequill:latest
+    restart: unless-stopped
+    environment:
+      TQ_DATA_DIR: /data
+      # The admin answers on these hostnames; "tidequill" lets Caddy ask about certificates.
+      TQ_ADMIN_HOSTS: ${TQ_ADMIN_HOST:-admin.localhost},localhost,127.0.0.1,tidequill
+      TQ_PUBLIC_SCHEME: https
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    volumes:
+      - tidequill-data:/data
+    expose:
+      - "8080"
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on: [tidequill]
+    environment:
+      TQ_ADMIN_HOST: ${TQ_ADMIN_HOST:-admin.localhost}
+      TQ_UPSTREAM: tidequill:8080
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+
+volumes:
+  tidequill-data:
+  caddy-data:
+  caddy-config:
