@@ -7,10 +7,13 @@ import type { Actor, Ctx, Role, Services, TqEvent } from "./types.ts";
  * The runtime ties an install together: one database, one event bus, the job
  * worker. Everything that needs a Ctx gets it from here.
  */
+/** Listeners get the runtime that emitted the event, so they never hold on to another install's database. */
+export type Listener = (e: TqEvent, rt: Runtime) => void | Promise<void>;
+
 export class Runtime {
   readonly db: Db;
   readonly services: Services;
-  private listeners: ((e: TqEvent) => void | Promise<void>)[] = [];
+  private listeners: Listener[] = [];
   private timers: ReturnType<typeof setInterval>[] = [];
   private working = false;
 
@@ -24,7 +27,7 @@ export class Runtime {
       emit: (event) => {
         for (const l of this.listeners) {
           try {
-            const r = l(event);
+            const r = l(event, this);
             if (r && typeof (r as Promise<void>).catch === "function") (r as Promise<void>).catch((err) => console.error("[tidequill] event listener failed:", err));
           } catch (err) {
             console.error("[tidequill] event listener failed:", err);
@@ -34,8 +37,13 @@ export class Runtime {
     };
   }
 
-  on(listener: (e: TqEvent) => void | Promise<void>) {
+  on(listener: Listener) {
     this.listeners.push(listener);
+  }
+
+  /** Listeners installed so far (tests share module installs across runtimes). */
+  get eventListeners(): readonly Listener[] {
+    return this.listeners;
   }
 
   ctx(opts: { actor?: Actor; siteId?: string | null; role?: Role | null; runId?: string } = {}): Ctx {

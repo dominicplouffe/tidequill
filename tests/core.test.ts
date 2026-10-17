@@ -154,3 +154,18 @@ describe("actions, proposals and earned autonomy", () => {
     expect(r.result[0]).toMatchObject({ from: "/cable-guide/", to: "/hide-every-cable/" });
   });
 });
+
+describe("events reach the runtime that emitted them", () => {
+  test("undo keeps the link graph in step on a fresh install", async () => {
+    await testSite(); // first install: modules bind their listeners here
+    const t = await testSite();
+    const target: any = await t.invoke(t.as(), "posts.create", { title: "Target post" });
+    const src: any = await t.invoke(t.as(), "posts.create", { title: "Source post", markdown: `See [the target](tq:${target.result.id}).` });
+    const links = () => t.db.query("SELECT COUNT(*) AS n FROM links WHERE from_entry_id = ?").get(src.result.id) as { n: number };
+    expect(links().n).toBe(1);
+    const edit: any = await t.invoke(t.as(), "posts.update", { id: src.result.id, markdown: "No links now." });
+    expect(links().n).toBe(0);
+    await t.invoke(t.as(), "history.undo", { actionId: edit.actionId });
+    expect(links().n).toBe(1);
+  });
+});

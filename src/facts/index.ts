@@ -12,10 +12,10 @@ export { changeSummary, factMap, factPages, findFact, getFact, listFacts, syncFa
 export async function install(rt: Runtime) {
   onEntrySaved((ctx, entry) => syncFactUsages(ctx, entry));
   // Core's undo restores revisions without the save hooks; keep usages in step anyway.
-  rt.on((e) => {
+  rt.on((e, runtime) => {
     if (e.type !== "entry.changed") return;
-    const entry = findEntry(rt.db, e.siteId, e.entryId, true);
-    if (entry) syncFactUsages(rt.ctx({ siteId: e.siteId }), entry);
+    const entry = findEntry(runtime.db, e.siteId, e.entryId, true);
+    if (entry) syncFactUsages(runtime.ctx({ siteId: e.siteId }), entry);
   });
   registerJob("facts.reverify", (ctx) => reverifyJob(ctx));
   registerRecurring("facts.reverify", 6 * 3_600_000);

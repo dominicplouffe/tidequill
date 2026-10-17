@@ -28,7 +28,7 @@ export async function testSite(opts: { niche?: string; domain?: string } = {}) {
     const { Runtime } = await import("../src/core/runtime.ts");
     rt = new Runtime(config, db);
     // Reuse the event listeners modules installed on the first runtime.
-    for (const l of (booted as any).listeners) rt.on(l);
+    for (const l of booted.eventListeners) rt.on(l);
   }
   const owner = await createUser(db, "owner@example.com", "Dana Owner", "correct horse battery");
   const human = (role: Role = "owner", siteId: string | null = null): Ctx => rt.ctx({ actor: { kind: "human", userId: owner.id, name: owner.name }, siteId, role });

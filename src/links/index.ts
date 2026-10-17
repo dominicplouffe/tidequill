@@ -14,10 +14,10 @@ export { findAnchor, related } from "./related.ts";
 export async function install(rt: Runtime) {
   onEntrySaved((ctx, entry) => rebuildLinks(ctx, entry));
   // Core's undo restores revisions without the save hooks; keep the graph in step anyway.
-  rt.on((e) => {
+  rt.on((e, runtime) => {
     if (e.type !== "entry.changed") return;
-    const entry = findEntry(rt.db, e.siteId, e.entryId, true);
-    if (entry) rebuildLinks(rt.ctx({ siteId: e.siteId }), entry);
+    const entry = findEntry(runtime.db, e.siteId, e.entryId, true);
+    if (entry) rebuildLinks(runtime.ctx({ siteId: e.siteId }), entry);
   });
   onPublished((ctx, entry) => linkOnPublish(ctx, entry));
   registerJob("links.check", (ctx) => linkCheckJob(ctx));

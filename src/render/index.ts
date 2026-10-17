@@ -46,6 +46,6 @@ export async function install(rt: Runtime) {
     const report = await buildSite(ctx, job.siteId, payload.entryIds ?? null, payload.reasons ?? []);
     if (report.checks.length) console.warn(`[tidequill] build of ${job.siteId}: ${report.checks.length} publish check${report.checks.length > 1 ? "s" : ""} failed: ${report.checks[0]!.message}`);
   });
-  rt.on((e) => onEvent(rt, e));
+  rt.on((e, runtime) => onEvent(runtime, e));
   extendApi((app, runtime) => liveRoutes(app, runtime));
 }

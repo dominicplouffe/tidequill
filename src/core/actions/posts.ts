@@ -341,8 +341,7 @@ defineAction({
     const e = getEntry(ctx.db, ctx.siteId!, p.id);
     const ready = await readiness(ctx, e);
     if (ready && !ready.ready && !p.override) {
-      const fixes = ready.findings.filter((f) => f.severity !== "info").length;
-      throw new TqError("invalid", `“${e.title}” isn't Ready yet (${ready.headline.toLowerCase()}). Fix ${fixes === 1 ? "it" : "them"} first, or publish anyway with a reason.`, ready);
+      throw new TqError("invalid", `“${e.title}” isn't Ready yet (${ready.headline.toLowerCase()}). Fix that first, or publish anyway with a reason.`, ready);
     }
     if (p.override && ctx.role !== "owner" && ctx.actor.kind === "human") throw new TqError("forbidden", "Only an owner can publish something that isn't Ready.");
     const before = e.currentRevisionId;

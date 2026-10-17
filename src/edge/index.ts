@@ -118,8 +118,8 @@ export async function install(rt: Runtime) {
   setHealthProvider((ctx, siteId) => siteHealth(ctx.dataDir, siteId));
   // A build replaces files the edge caches; drop the cached copies so changes show at once.
   onSiteBuilt(() => invalidate());
-  rt.on((e) => {
-    if (e.type === "site.changed" && e.what === "domains") invalidate(hostsFile(rt.config.dataDir));
+  rt.on((e, runtime) => {
+    if (e.type === "site.changed" && e.what === "domains") invalidate(hostsFile(runtime.config.dataDir));
   });
   if (!flushTimer) {
     flushTimer = setInterval(flushAnalytics, 60_000);
