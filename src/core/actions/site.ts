@@ -509,7 +509,7 @@ defineAction({
 
 // ---------- Site Brain ----------
 
-const brainKind = z.enum(["identity", "fact", "position", "claim_rule", "competitor", "style", "lesson", "note"]);
+const brainKind = z.enum(["identity", "fact", "position", "claim_rule", "competitor", "style", "lesson", "idea", "note"]);
 
 defineAction({
   name: "brain.add",
