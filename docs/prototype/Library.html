@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tidequill Library</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><style>@font-face{font-family:'Hanken Grotesk';font-weight:400;font-style:normal;src:url(fonts/hanken-grotesk-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Hanken Grotesk';font-weight:500;font-style:normal;src:url(fonts/hanken-grotesk-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Hanken Grotesk';font-weight:600;font-style:normal;src:url(fonts/hanken-grotesk-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Hanken Grotesk';font-weight:700;font-style:normal;src:url(fonts/hanken-grotesk-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Newsreader';font-weight:400;font-style:normal;src:url(fonts/newsreader-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Newsreader';font-weight:500;font-style:normal;src:url(fonts/newsreader-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Newsreader';font-weight:400;font-style:italic;src:url(fonts/newsreader-latin-400-italic.woff2) format('woff2')}
+</style>
+</head>
+<body>
+
+
+
+
+<style>
+body{margin:0;font-family:'Hanken Grotesk',system-ui,-apple-system,sans-serif;color:#10283A;background:#F2F7F9}
+a{color:#0E6E9E}a:hover{color:#0A5880}
+</style>
+
+<div style="display: flex; flex-wrap: wrap; min-height: 1040px; background: #F2F7F9">
+
+<nav aria-label="Main" style="flex: 1 1 220px; background: #0C3A55; color: #E3EFF5; padding: 28px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+  <div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="8" fill="#0E6E9E"></rect><path d="M21.5 5.5c-5.5 1.5-9 6.5-10.5 13.5l2.2.8c1.6-5.4 4.4-10.2 8.3-14.3z" fill="#F4D35E"></path><path d="M5 23c2.5-1.8 4.5-1.8 7 0s4.5 1.8 7 0 4.5-1.8 6 0" stroke="#7DD3FC" stroke-width="1.8" fill="none" stroke-linecap="round"></path></svg>
+    <span style="font-size: 19px; font-weight: 700; letter-spacing: -0.01em; color: #FFFFFF">Tidequill</span>
+  </div>
+  <a href="Network.html" style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; min-height: 48px; padding: 10px 12px; border-radius: 10px; border: 1px solid #1F6283; background: #104562; color: #FFFFFF; font-size: 14px; text-decoration: none">
+    <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">walnutandwire.com</span><span style="font-size: 12px; color: #A6C7D8">2 sites in this network</span></span>
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 5l4 4 4-4" stroke="#A6C7D8" stroke-width="1.6" fill="none"></path></svg>
+  </a>
+  <div style="display: flex; flex-direction: column; gap: 4px">
+    <a href="Main.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C4DDE9; text-decoration: none">Today<span style="background: #F4D35E; color: #0C3A55; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 2px 8px">3</span></a>
+    <a href="Write.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C4DDE9; text-decoration: none">Write</a>
+    <a href="Library.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #175A7C; color: #FFFFFF; font-weight: 600; text-decoration: none">Library</a>
+    <a href="Look.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C4DDE9; text-decoration: none">Look</a>
+    <a href="Agents.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C4DDE9; text-decoration: none">Settings</a>
+  </div>
+  <a href="Command.html" style="margin-top: auto; display: flex; justify-content: space-between; align-items: center; min-height: 48px; padding: 0 14px; border-radius: 12px; background: #F4D35E; color: #0C3A55; font-weight: 700; text-decoration: none">Ask Tidequill<span style="font-size: 12px; font-weight: 600; background: rgba(12,58,85,0.12); border-radius: 6px; padding: 3px 7px">⌘K</span></a>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; display: flex; flex-wrap: wrap">
+  <section style="flex: 3 1 520px; min-width: 0; padding: 36px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+    <header style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+      <h1 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">Library</h1>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap">
+        <button type="button" style="min-height: 44px; padding: 0 16px; border-radius: 10px; border: 1px solid #D3E1E8; background: #FFFFFF; color: #10283A; font: inherit; font-weight: 600; cursor: pointer">Upload from phone</button>
+        <button type="button" style="min-height: 44px; padding: 0 18px; border-radius: 10px; border: 0; background: #0C3A55; color: #FFFFFF; font: inherit; font-weight: 700; cursor: pointer">Upload</button>
+      </div>
+    </header>
+
+    <label style="display: flex; align-items: center; gap: 12px; min-height: 54px; padding: 0 18px; border-radius: 14px; background: #FFFFFF; border: 1px solid #D3E1E8">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="8" cy="8" r="6" stroke="#46596A" stroke-width="1.6" fill="none"></circle><path d="M12.5 12.5L16 16" stroke="#46596A" stroke-width="1.6"></path></svg>
+      <span style="position: absolute; width: 1px; height: 1px; overflow: hidden">Search media</span>
+      <input type="text" value="walnut stand in a small living room" style="flex: 1; min-width: 0; border: 0; outline: none; font: inherit; font-size: 16px; background: transparent; color: #10283A">
+      <span style="font-size: 13px; color: #46596A">Searches what’s in the picture</span>
+    </label>
+
+    <div role="group" aria-label="Filter" style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 14px">
+      <button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 0; background: #0C3A55; color: #FFFFFF; font: inherit; font-weight: 600; cursor: pointer">All 412</button>
+      <button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #D3E1E8; background: #FFFFFF; font: inherit; cursor: pointer">Images 371</button>
+      <button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #D3E1E8; background: #FFFFFF; font: inherit; cursor: pointer">Video 18</button>
+      <button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #D3E1E8; background: #FFFFFF; font: inherit; cursor: pointer">Files 23</button>
+      <button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #D3E1E8; background: #FFFFFF; font: inherit; cursor: pointer">Unused 41</button>
+      <button type="button" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #E8CB6E; background: #FDF5D8; font: inherit; cursor: pointer">Missing alt text 3</button>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px">
+      <figure style="margin: 0; background: #FFFFFF; border-radius: 14px; overflow: hidden; outline: 3px solid #0E6E9E; outline-offset: -3px">
+        <div style="height: 140px; background: #C9A27E; display: flex; align-items: flex-end; padding: 10px; box-sizing: border-box; color: #3A2817; font-size: 12px">[Photo: walnut stand, grey sofa]</div>
+        <figcaption style="padding: 10px 12px; font-size: 13px; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">walnut-stand-living-room.jpg</span><span style="color: #46596A">Used in 3 posts</span></figcaption>
+      </figure>
+      <figure style="margin: 0; background: #FFFFFF; border-radius: 14px; overflow: hidden">
+        <div style="height: 140px; background: #8E6A4C; display: flex; align-items: flex-end; padding: 10px; box-sizing: border-box; color: #FFF4E6; font-size: 12px">[Photo: dovetail joint close-up]</div>
+        <figcaption style="padding: 10px 12px; font-size: 13px; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">dovetail-detail.jpg</span><span style="color: #46596A">Used in 1 post</span></figcaption>
+      </figure>
+      <figure style="margin: 0; background: #FFFFFF; border-radius: 14px; overflow: hidden">
+        <div style="height: 140px; background: #33465F; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 13px; gap: 8px"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="rgba(255,255,255,0.18)"></circle><path d="M11 9l8 5-8 5z" fill="#FFFFFF"></path></svg>2:41</div>
+        <figcaption style="padding: 10px 12px; font-size: 13px; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">cable-routing-howto.mp4</span><span style="color: #46596A">Captions and transcript ready</span></figcaption>
+      </figure>
+      <figure style="margin: 0; background: #FFFFFF; border-radius: 14px; overflow: hidden">
+        <div style="height: 140px; background: #D9CBB8; display: flex; align-items: flex-end; padding: 10px; box-sizing: border-box; color: #4F3D29; font-size: 12px">[Photo: stand with 77-inch TV]</div>
+        <figcaption style="padding: 10px 12px; font-size: 13px; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">77in-on-stand.jpg</span><span style="color: #9A3412; font-weight: 600">Needs alt text</span></figcaption>
+      </figure>
+      <figure style="margin: 0; background: #FFFFFF; border-radius: 14px; overflow: hidden">
+        <div style="height: 140px; background: #ECF3F6; display: flex; align-items: center; justify-content: center; color: #46596A; font-size: 13px; font-weight: 600">PDF</div>
+        <figcaption style="padding: 10px 12px; font-size: 13px; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">stand-size-cheatsheet.pdf</span><span style="color: #46596A">Downloaded 214 times</span></figcaption>
+      </figure>
+      <figure style="margin: 0; background: #FFFFFF; border-radius: 14px; overflow: hidden">
+        <div style="height: 140px; background: #A9B88F; display: flex; align-items: flex-end; padding: 10px; box-sizing: border-box; color: #253014; font-size: 12px">[Generated: oak stand, plants]</div>
+        <figcaption style="padding: 10px 12px; font-size: 13px; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">oak-stand-concept.webp</span><span style="color: #46596A">AI image, labeled</span></figcaption>
+      </figure>
+    </div>
+
+    <div style="border: 2px dashed #B9C6DC; border-radius: 14px; padding: 22px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; color: #46596A; font-size: 15px">
+      <span>Drop files here, paste from the clipboard, or ask: “Find me a photo of an oak stand.”</span>
+      <span style="font-size: 13px">Images are converted to AVIF and WebP automatically</span>
+    </div>
+  </section>
+
+  <aside aria-label="Selected file" style="flex: 1 1 340px; min-width: 0; padding: 32px 24px; box-sizing: border-box; background: #FFFFFF; border-left: 1px solid #D8E5EB; display: flex; flex-direction: column; gap: 18px">
+    <div style="height: 200px; border-radius: 12px; background: #C9A27E; position: relative; display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box; color: #3A2817; font-size: 12px">[Photo: walnut stand, grey sofa]
+      <span aria-label="Focal point" style="position: absolute; left: 58%; top: 42%; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #FFFFFF; box-shadow: 0 0 0 2px #0C3A55"></span>
+    </div>
+    <h2 style="margin: 0; font-size: 17px; font-weight: 700">walnut-stand-living-room.jpg</h2>
+    <label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px">
+      <span style="display: flex; justify-content: space-between"><span style="font-weight: 600">Alt text</span><span style="font-size: 12px; font-weight: 700; color: #0C3A55; background: #FAE8A6; border-radius: 999px; padding: 2px 8px">Written by agent</span></span>
+      <textarea rows="3" style="border-radius: 10px; border: 1px solid #D3E1E8; padding: 10px 12px; font: inherit; font-size: 15px; line-height: 1.45; color: #10283A; resize: none">Low walnut TV stand with two open shelves under a 65-inch TV, beside a grey linen sofa.</textarea>
+    </label>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; font-size: 14px">
+      <div style="display: flex; flex-direction: column; gap: 3px"><span style="color: #46596A">Source</span><span style="font-weight: 600">Fred’s phone, Oct 12</span></div>
+      <div style="display: flex; flex-direction: column; gap: 3px"><span style="color: #46596A">Location data</span><span style="font-weight: 600">Removed</span></div>
+      <div style="display: flex; flex-direction: column; gap: 3px"><span style="color: #46596A">Served as</span><span style="font-weight: 600">AVIF, 6 sizes</span></div>
+      <div style="display: flex; flex-direction: column; gap: 3px"><span style="color: #46596A">At 1200 px</span><span style="font-weight: 600">41 KB</span></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px">
+      <span style="font-weight: 600">Used in</span>
+      <a href="Write.html">How to pick a TV stand for a 77-inch TV</a>
+      <a href="#">Small living room layouts that work</a>
+      <a href="#">The best walnut TV stands under $800</a>
+    </div>
+    <button type="button" style="margin-top: auto; min-height: 44px; border-radius: 10px; border: 1px solid #D3E1E8; background: #FFFFFF; color: #10283A; font: inherit; font-weight: 600; cursor: pointer">Replace everywhere</button>
+  </aside>
+</main>
+</div>
+
+
+</body>
+</html>

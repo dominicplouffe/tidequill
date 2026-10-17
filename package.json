@@ -1,0 +1,33 @@
+{
+  "name": "tidequill",
+  "version": "0.1.0",
+  "description": "Your site, writing itself. An agent-run CMS that ships pre-rendered HTML.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "bin": {
+    "tq": "./src/cli/main.ts"
+  },
+  "scripts": {
+    "dev": "bun --watch src/cli/main.ts serve",
+    "serve": "bun src/cli/main.ts serve",
+    "tq": "bun src/cli/main.ts",
+    "build:admin": "cd admin && bunx vite build",
+    "build:binary": "bun run build:admin && bun build src/cli/main.ts --compile --outfile dist/tq",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "fast-xml-parser": "^5.11.2",
+    "hono": "^4.13.13",
+    "liquidjs": "^10.30.0",
+    "node-html-parser": "^9.0.4",
+    "sharp": "^0.35.5",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.3",
+    "typescript": "^7.0.2"
+  }
+}

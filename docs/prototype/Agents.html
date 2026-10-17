@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tidequill Agents and guardrails</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><style>@font-face{font-family:'Hanken Grotesk';font-weight:400;font-style:normal;src:url(fonts/hanken-grotesk-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Hanken Grotesk';font-weight:500;font-style:normal;src:url(fonts/hanken-grotesk-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Hanken Grotesk';font-weight:600;font-style:normal;src:url(fonts/hanken-grotesk-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Hanken Grotesk';font-weight:700;font-style:normal;src:url(fonts/hanken-grotesk-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Newsreader';font-weight:400;font-style:normal;src:url(fonts/newsreader-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Newsreader';font-weight:500;font-style:normal;src:url(fonts/newsreader-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Newsreader';font-weight:400;font-style:italic;src:url(fonts/newsreader-latin-400-italic.woff2) format('woff2')}
+</style>
+</head>
+<body>
+
+
+
+
+<style>
+body{margin:0;font-family:'Hanken Grotesk',system-ui,-apple-system,sans-serif;color:#10283A;background:#F2F7F9}
+a{color:#0E6E9E}a:hover{color:#0A5880}
+</style>
+
+<div style="display: flex; flex-wrap: wrap; min-height: 1040px; background: #F2F7F9">
+
+<nav aria-label="Main" style="flex: 1 1 220px; background: #0C3A55; color: #E3EFF5; padding: 28px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+  <div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+    <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="8" fill="#0E6E9E"></rect><path d="M21.5 5.5c-5.5 1.5-9 6.5-10.5 13.5l2.2.8c1.6-5.4 4.4-10.2 8.3-14.3z" fill="#F4D35E"></path><path d="M5 23c2.5-1.8 4.5-1.8 7 0s4.5 1.8 7 0 4.5-1.8 6 0" stroke="#7DD3FC" stroke-width="1.8" fill="none" stroke-linecap="round"></path></svg>
+    <span style="font-size: 19px; font-weight: 700; letter-spacing: -0.01em; color: #FFFFFF">Tidequill</span>
+  </div>
+  <a href="Network.html" style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; min-height: 48px; padding: 10px 12px; border-radius: 10px; border: 1px solid #1F6283; background: #104562; color: #FFFFFF; font-size: 14px; text-decoration: none">
+    <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">walnutandwire.com</span><span style="font-size: 12px; color: #A6C7D8">2 sites in this network</span></span>
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 5l4 4 4-4" stroke="#A6C7D8" stroke-width="1.6" fill="none"></path></svg>
+  </a>
+  <div style="display: flex; flex-direction: column; gap: 4px">
+    <a href="Main.html" style="display: flex; justify-content: space-between; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C4DDE9; text-decoration: none">Today<span style="background: #F4D35E; color: #0C3A55; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 2px 8px">3</span></a>
+    <a href="Write.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C4DDE9; text-decoration: none">Write</a>
+    <a href="Library.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C4DDE9; text-decoration: none">Library</a>
+    <a href="Look.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; color: #C4DDE9; text-decoration: none">Look</a>
+    <a href="Agents.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 10px; background: #175A7C; color: #FFFFFF; font-weight: 600; text-decoration: none">Settings</a>
+  </div>
+  <a href="Command.html" style="margin-top: auto; display: flex; justify-content: space-between; align-items: center; min-height: 48px; padding: 0 14px; border-radius: 12px; background: #F4D35E; color: #0C3A55; font-weight: 700; text-decoration: none">Ask Tidequill<span style="font-size: 12px; font-weight: 600; background: rgba(12,58,85,0.12); border-radius: 6px; padding: 3px 7px">⌘K</span></a>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; padding: 36px 48px 56px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+  <header style="display: flex; flex-direction: column; gap: 14px">
+    <h1 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">Settings</h1>
+    <div role="tablist" aria-label="Settings sections" style="display: flex; flex-wrap: wrap; gap: 6px; font-size: 15px">
+      <a href="#" style="min-height: 40px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 10px; color: #46596A; text-decoration: none">Site</a>
+      <a href="#" style="min-height: 40px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 10px; color: #46596A; text-decoration: none">Domains</a>
+      <a href="Authors.html" style="min-height: 40px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 10px; color: #46596A; text-decoration: none">Authors</a>
+      <a href="#" aria-current="page" style="min-height: 40px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 10px; background: #FFFFFF; border: 1px solid #D3E1E8; color: #10283A; font-weight: 600; text-decoration: none">Agents and guardrails</a>
+      <a href="#" style="min-height: 40px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 10px; color: #46596A; text-decoration: none">Site Brain</a>
+      <a href="#" style="min-height: 40px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 10px; color: #46596A; text-decoration: none">Billing</a>
+    </div>
+  </header>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 24px; align-items: start">
+    <section aria-labelledby="autonomy" style="background: #FFFFFF; border: 1px solid #D3E1E8; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 6px">
+      <h2 id="autonomy" style="margin: 0; font-size: 18px; font-weight: 700">How much can agents do on their own?</h2>
+      <p style="margin: 0 0 10px; font-size: 14px; color: #46596A; line-height: 1.5">Ask: they propose, you approve. Notify: they act, you can undo. Autopilot: they act inside your guardrails and send a weekly digest.</p>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px solid #ECF3F6">
+        <span style="font-size: 15px; font-weight: 600">Publish new posts</span>
+        <div role="radiogroup" aria-label="Publish new posts" style="display: flex; background: #ECF3F6; border-radius: 10px; padding: 3px; font-size: 13px"><span role="radio" aria-checked="true" style="padding: 7px 12px; border-radius: 8px; background: #0C3A55; color: #FFFFFF; font-weight: 600">Ask</span><span role="radio" aria-checked="false" style="padding: 7px 12px; color: #46596A">Notify</span><span role="radio" aria-checked="false" style="padding: 7px 12px; color: #8792A8">Autopilot</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px solid #ECF3F6">
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">Refresh older posts</span><span style="font-size: 12px; color: #46596A">Autopilot unlocks after 30 approved posts (24 so far)</span></span>
+        <div role="radiogroup" aria-label="Refresh older posts" style="display: flex; background: #ECF3F6; border-radius: 10px; padding: 3px; font-size: 13px"><span role="radio" aria-checked="true" style="padding: 7px 12px; border-radius: 8px; background: #0C3A55; color: #FFFFFF; font-weight: 600">Ask</span><span role="radio" aria-checked="false" style="padding: 7px 12px; color: #46596A">Notify</span><span role="radio" aria-checked="false" style="padding: 7px 12px; color: #8792A8">Autopilot</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px solid #ECF3F6">
+        <span style="font-size: 15px; font-weight: 600">Change the look</span>
+        <div role="radiogroup" aria-label="Change the look" style="display: flex; background: #ECF3F6; border-radius: 10px; padding: 3px; font-size: 13px"><span role="radio" aria-checked="true" style="padding: 7px 12px; border-radius: 8px; background: #0C3A55; color: #FFFFFF; font-weight: 600">Ask</span><span role="radio" aria-checked="false" style="padding: 7px 12px; color: #46596A">Notify</span><span role="radio" aria-checked="false" style="padding: 7px 12px; color: #46596A">Autopilot</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px solid #ECF3F6">
+        <span style="font-size: 15px; font-weight: 600">Alt text, schema, typo fixes</span>
+        <div role="radiogroup" aria-label="Alt text, schema, typo fixes" style="display: flex; background: #ECF3F6; border-radius: 10px; padding: 3px; font-size: 13px"><span role="radio" aria-checked="false" style="padding: 7px 12px; color: #46596A">Ask</span><span role="radio" aria-checked="true" style="padding: 7px 12px; border-radius: 8px; background: #0C3A55; color: #FFFFFF; font-weight: 600">Notify</span><span role="radio" aria-checked="false" style="padding: 7px 12px; color: #46596A">Autopilot</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px solid #ECF3F6">
+        <span style="font-size: 15px; font-weight: 600">Internal links</span>
+        <div role="radiogroup" aria-label="Internal links" style="display: flex; background: #ECF3F6; border-radius: 10px; padding: 3px; font-size: 13px"><span role="radio" aria-checked="false" style="padding: 7px 12px; color: #46596A">Ask</span><span role="radio" aria-checked="true" style="padding: 7px 12px; border-radius: 8px; background: #0C3A55; color: #FFFFFF; font-weight: 600">Notify</span><span role="radio" aria-checked="false" style="padding: 7px 12px; color: #46596A">Autopilot</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px solid #ECF3F6">
+        <span style="font-size: 15px; font-weight: 600">Broken links and redirects</span>
+        <div role="radiogroup" aria-label="Broken links and redirects" style="display: flex; background: #ECF3F6; border-radius: 10px; padding: 3px; font-size: 13px"><span role="radio" aria-checked="false" style="padding: 7px 12px; color: #46596A">Ask</span><span role="radio" aria-checked="false" style="padding: 7px 12px; color: #46596A">Notify</span><span role="radio" aria-checked="true" style="padding: 7px 12px; border-radius: 8px; background: #0C3A55; color: #FFFFFF; font-weight: 600">Autopilot</span></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px solid #ECF3F6">
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">Deleting anything</span><span style="font-size: 12px; color: #46596A">Always needs you. This can’t be changed.</span></span>
+        <span style="font-size: 13px; font-weight: 600; padding: 7px 12px; border-radius: 8px; background: #ECF3F6; color: #10283A">Always ask</span>
+      </div>
+    </section>
+
+    <div style="display: flex; flex-direction: column; gap: 24px">
+      <section aria-labelledby="budget" style="background: #FFFFFF; border: 1px solid #D3E1E8; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; justify-content: space-between; align-items: baseline"><h2 id="budget" style="margin: 0; font-size: 18px; font-weight: 700">Monthly agent budget</h2><span style="font-size: 22px; font-weight: 700">$40</span></div>
+        <div style="height: 10px; border-radius: 5px; background: #E4EEF3"><div style="width: 28.5%; height: 10px; border-radius: 5px; background: #0E6E9E"></div></div>
+        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #46596A"><span>$11.40 used, 14 days left</span><span>Pauses Autopilot at 100%</span></div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; font-size: 14px; padding-top: 6px">
+          <div style="display: flex; flex-direction: column; gap: 3px"><span style="color: #46596A">Writing and planning</span><span style="font-weight: 600">Claude, frontier tier</span></div>
+          <div style="display: flex; flex-direction: column; gap: 3px"><span style="color: #46596A">Alt text and tagging</span><span style="font-weight: 600">Fast tier</span></div>
+          <div style="display: flex; flex-direction: column; gap: 3px"><span style="color: #46596A">Average cost per post</span><span style="font-weight: 600">$0.21</span></div>
+          <div style="display: flex; flex-direction: column; gap: 3px"><span style="color: #46596A">Model key</span><span style="font-weight: 600">Your own key</span></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="guardrails" style="background: #FFFFFF; border: 1px solid #D3E1E8; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 4px">
+        <h2 id="guardrails" style="margin: 0 0 8px; font-size: 18px; font-weight: 700">Guardrails</h2>
+        <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid #ECF3F6; font-size: 15px"><span>Most posts published per day</span><span style="font-weight: 600">2</span></div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid #ECF3F6; font-size: 15px"><span>Never write about</span><span style="font-weight: 600; text-align: right">Wall mounting, electrical work</span></div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid #ECF3F6; font-size: 15px"><span>Safety claims need a source</span><span style="font-weight: 600">On</span></div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid #ECF3F6; font-size: 15px"><span>Affiliate disclosure on posts with links</span><span style="font-weight: 600">On, locked</span></div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid #ECF3F6; font-size: 15px"><span>AI label for EU visitors</span><span style="font-weight: 600">On</span></div>
+        <div style="display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid #ECF3F6; font-size: 15px"><span>Reviews need a real author and photos</span><span style="font-weight: 600">On, locked</span></div>
+        <a href="Command.html" style="margin-top: 8px; font-size: 14px; font-weight: 600">Add a rule by asking</a>
+      </section>
+    </div>
+  </div>
+</main>
+</div>
+
+
+</body>
+</html>
