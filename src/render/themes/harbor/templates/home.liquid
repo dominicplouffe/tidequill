@@ -1,0 +1,23 @@
+{% layout 'layout' %}
+{% block content %}
+<div class="wrap home-intro">
+{%- if home.kicker %}<p class="kicker">{{ home.kicker }}</p>{% endif %}
+<h1{{ home.titleAttrs | raw }}>{{ home.title }}</h1>
+{%- if home.lede != "" %}<p class="lede">{{ home.lede }}</p>{% endif %}
+{%- if home.bodyHtml %}<div class="prose">{{ home.bodyHtml | raw }}</div>{% endif %}
+{%- if home.cta %}<p><a class="button" href="{{ home.cta.href }}">{{ home.cta.label }}</a></p>{% endif %}
+</div>
+{%- if home.latest.size > 0 %}
+<section class="wide" aria-labelledby="latest-title">
+<h2 class="section-title" id="latest-title">{{ home.latestTitle }}</h2>
+{% render 'cards', items: home.latest %}
+{% render 'pager', pager: home.pager %}
+</section>
+{%- endif %}
+{%- if home.topics.size > 0 %}
+<section class="wide" aria-labelledby="topics-title">
+<h2 class="section-title" id="topics-title">Topics</h2>
+<ul class="topics">{% for t in home.topics %}<li><a href="{{ t.href }}">{{ t.name }}</a></li>{% endfor %}</ul>
+</section>
+{%- endif %}
+{% endblock %}

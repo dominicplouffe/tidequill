@@ -1,0 +1,14 @@
+{% layout 'layout' %}
+{% block content %}
+<div class="wrap">
+<h1>Search</h1>
+<form class="search-form" role="search" action="/search/" method="get">
+<label for="q">Search {{ site.name }}</label>
+<input id="q" name="q" type="search" autocomplete="off">
+<button class="button" type="submit">Search</button>
+</form>
+<div id="results" aria-live="polite" data-index="/search.json"></div>
+<noscript><p>Search needs JavaScript. You can browse by topic instead:</p>
+<ul class="topics">{% for t in search.topics %}<li><a href="{{ t.href }}">{{ t.name }}</a></li>{% endfor %}</ul></noscript>
+</div>
+{% endblock %}

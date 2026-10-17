@@ -1,0 +1,7 @@
+{%- if pager %}
+<nav class="pager" aria-label="More pages">
+<span>{% if pager.prev %}<a href="{{ pager.prev }}" rel="prev">Newer posts</a>{% endif %}</span>
+<span>{{ pager.label }}</span>
+<span>{% if pager.next %}<a href="{{ pager.next }}" rel="next">Older posts</a>{% endif %}</span>
+</nav>
+{%- endif %}

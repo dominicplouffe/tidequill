@@ -1,0 +1,16 @@
+/* Workshop: product reviews; tables and verdicts lead. */
+.site-header{background:var(--surface)}
+.brand{font-weight:700;font-size:24px;letter-spacing:-.02em}
+h1,h2,h3{font-weight:700;letter-spacing:-.015em}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin:0 0 28px;font-family:var(--font-ui);font-size:var(--small)}
+.toc h2{font-size:16px;margin:0 0 6px}
+.toc ol{margin:0;padding-left:20px}
+.tq-answer{border:2px solid var(--accent);border-left-width:6px;font-weight:600}
+.tq-table{border:2px solid var(--border);border-radius:var(--radius);margin:1.6em -8px}
+.tq-table table{font-size:.95em}
+.tq-table thead th{background:var(--accent);color:var(--accent-text);position:sticky;top:0}
+.tq-table tbody tr:nth-child(even){background:var(--surface)}
+.tq-table td:first-child{font-weight:700}
+.card{border:1px solid var(--border);border-radius:var(--radius);padding:14px;background:var(--bg)}
+.card img{margin:-14px -14px 6px;width:calc(100% + 28px);max-width:none;border-radius:var(--radius) var(--radius) 0 0}
+.home-intro{border-bottom:1px solid var(--border);padding-bottom:28px}

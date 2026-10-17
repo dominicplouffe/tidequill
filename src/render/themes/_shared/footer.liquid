@@ -1,0 +1,8 @@
+<footer class="site-footer">
+<div class="wide">
+{%- if site.footer.size > 0 %}
+<ul>{% for item in site.footer %}<li><a href="{{ item.href }}">{{ item.label }}</a></li>{% endfor %}<li><a href="/feed.xml">RSS feed</a></li></ul>
+{%- endif %}
+<p>© {{ site.year }} {{ site.name }}. {{ site.tagline }}</p>
+</div>
+</footer>

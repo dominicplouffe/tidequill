@@ -1,0 +1,24 @@
+{% layout 'layout' %}
+{% block content %}
+<article class="entry wrap">
+{% render 'breadcrumbs', items: entry.breadcrumbs %}
+<header class="entry-head">
+<h1{{ entry.titleAttrs | raw }}>{{ entry.title }}</h1>
+{% render 'byline', entry: entry %}
+</header>
+{%- if entry.hero %}
+<figure class="hero">{{ entry.hero | raw }}</figure>
+{%- endif %}
+{%- if entry.toc.size > 2 %}
+<nav class="toc" aria-labelledby="toc-title">
+<h2 id="toc-title">In this {% if entry.isPost %}review{% else %}page{% endif %}</h2>
+<ol>{% for h in entry.toc %}<li><a href="#{{ h.id }}">{{ h.text }}</a></li>{% endfor %}</ol>
+</nav>
+{%- endif %}
+<div class="prose">
+{{ entry.bodyHtml | raw }}
+</div>
+{% render 'author-box', authors: entry.authors %}
+</article>
+{% render 'related', items: entry.related %}
+{% endblock %}

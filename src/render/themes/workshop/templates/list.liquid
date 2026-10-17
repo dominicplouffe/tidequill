@@ -1,0 +1,15 @@
+{% layout 'layout' %}
+{% block content %}
+<div class="wide">
+{% render 'breadcrumbs', items: list.breadcrumbs %}
+<h1>{{ list.title }}</h1>
+{%- if list.description != "" %}<p class="lede">{{ list.description }}</p>{% endif %}
+<h2 class="section-title">{{ list.postsTitle }}</h2>
+{%- if list.items.size > 0 %}
+{% render 'cards', items: list.items %}
+{%- else %}
+<p>Nothing here yet. New posts on this topic will show up here.</p>
+{%- endif %}
+{% render 'pager', pager: list.pager %}
+</div>
+{% endblock %}

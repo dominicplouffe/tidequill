@@ -1,0 +1,10 @@
+{%- for a in authors %}
+<aside class="author-box" aria-label="About the author">
+{%- if a.photo %}{{ a.photo | raw }}{% else %}<span class="avatar" aria-hidden="true">{{ a.initials }}</span>{% endif %}
+<div>
+<h2><a href="{{ a.href }}">{{ a.name }}</a></h2>
+{%- if a.credentials != "" %}<p><strong>{{ a.credentials }}</strong></p>{% endif %}
+{%- if a.bio != "" %}<p>{{ a.bio }}</p>{% endif %}
+</div>
+</aside>
+{%- endfor %}

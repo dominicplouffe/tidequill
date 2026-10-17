@@ -1,0 +1,10 @@
+/* Harbor: editorial, serif, a narrow column on warm paper. */
+.brand{color:var(--text)}
+.entry-head{margin-bottom:8px}
+.entry h1{letter-spacing:-.01em}
+.prose h2,.prose h3{font-family:var(--font-ui);font-weight:700;letter-spacing:-.01em}
+.prose{font-size:calc(var(--base)*1.05)}
+.home-intro{padding:8px 0 12px}
+.home-intro .kicker{margin-bottom:10px}
+.home-intro h1{max-width:16em}
+.card h3{font-family:var(--font-heading);font-weight:500;font-size:calc(var(--base)*1.05)}

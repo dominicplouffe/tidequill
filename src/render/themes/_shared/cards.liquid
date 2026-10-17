@@ -1,0 +1,10 @@
+<ul class="cards">
+{%- for c in items %}
+<li class="card">
+{%- if c.image %}{{ c.image | raw }}{% endif %}
+<h3><a href="{{ c.href }}">{{ c.title }}</a></h3>
+{%- if c.description != "" %}<p>{{ c.description }}</p>{% endif %}
+{%- if c.date %}<p><time datetime="{{ c.date.iso }}">{{ c.date.label }}</time>{% if c.category %} · {{ c.category }}{% endif %}</p>{% endif %}
+</li>
+{%- endfor %}
+</ul>

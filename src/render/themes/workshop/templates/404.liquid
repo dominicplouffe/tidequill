@@ -1,0 +1,12 @@
+{% layout 'layout' %}
+{% block content %}
+<div class="wrap">
+<h1>We couldn't find that page</h1>
+<p class="lede">It may have moved, or the address has a typo.</p>
+<p><a class="button" href="/">Go to the home page</a></p>
+<p>Or <a href="/search/">search the site</a>{% if notFound.topics.size > 0 %}, or browse a topic:{% else %}.{% endif %}</p>
+{%- if notFound.topics.size > 0 %}
+<ul class="topics">{% for t in notFound.topics %}<li><a href="{{ t.href }}">{{ t.name }}</a></li>{% endfor %}</ul>
+{%- endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% layout 'layout' %}
+{% block content %}
+<div class="wide home-hero">
+<div>
+{%- if home.kicker %}<p class="kicker">{{ home.kicker }}</p>{% endif %}
+<h1{{ home.titleAttrs | raw }}>{{ home.title }}</h1>
+{%- if home.lede != "" %}<p class="lede">{{ home.lede }}</p>{% endif %}
+{%- if home.cta %}<p><a class="button" href="{{ home.cta.href }}">{{ home.cta.label }}</a></p>{% endif %}
+</div>
+{%- if home.heroImage %}<div>{{ home.heroImage | raw }}</div>{% endif %}
+</div>
+{%- if home.bodyHtml %}<div class="wrap prose">{{ home.bodyHtml | raw }}</div>{% endif %}
+{%- if home.latest.size > 0 %}
+<section class="wide" aria-labelledby="latest-title">
+<h2 class="section-title" id="latest-title">{{ home.latestTitle }}</h2>
+{% render 'cards', items: home.latest %}
+{% render 'pager', pager: home.pager %}
+</section>
+{%- endif %}
+{% endblock %}

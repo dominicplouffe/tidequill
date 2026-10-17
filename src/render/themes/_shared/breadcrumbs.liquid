@@ -1,0 +1,5 @@
+{%- if items.size > 1 %}
+<nav class="crumbs" aria-label="Breadcrumb"><ol>
+{%- for c in items %}<li>{% if forloop.last %}<span aria-current="page">{{ c.label }}</span>{% else %}<a href="{{ c.href }}">{{ c.label }}</a>{% endif %}</li>{% endfor -%}
+</ol></nav>
+{%- endif %}

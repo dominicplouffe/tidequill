@@ -1,0 +1,20 @@
+{% layout 'layout' %}
+{% block content %}
+<div class="wide">
+{% render 'breadcrumbs', items: author.breadcrumbs %}
+<div class="author-head">
+{%- if author.photo %}{{ author.photo | raw }}{% endif %}
+<h1>{{ author.name }}</h1>
+{%- if author.credentials != "" %}<p class="meta"><strong>{{ author.credentials }}</strong></p>{% endif %}
+{%- if author.bio != "" %}<p class="lede">{{ author.bio }}</p>{% endif %}
+{%- if author.expertise.size > 0 %}<ul class="topics" aria-label="Writes about">{% for x in author.expertise %}<li><span>{{ x }}</span></li>{% endfor %}</ul>{% endif %}
+</div>
+<h2 class="section-title">{{ author.postsTitle }}</h2>
+{%- if author.items.size > 0 %}
+{% render 'cards', items: author.items %}
+{%- else %}
+<p>No posts yet.</p>
+{%- endif %}
+{% render 'pager', pager: author.pager %}
+</div>
+{% endblock %}

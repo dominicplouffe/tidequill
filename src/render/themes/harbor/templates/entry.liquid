@@ -1,0 +1,18 @@
+{% layout 'layout' %}
+{% block content %}
+<article class="entry wrap">
+<header class="entry-head">
+{%- if entry.category %}<a class="kicker" href="{{ entry.category.href }}">{{ entry.category.name }}</a>{% endif %}
+<h1{{ entry.titleAttrs | raw }}>{{ entry.title }}</h1>
+{% render 'byline', entry: entry %}
+</header>
+{%- if entry.hero %}
+<figure class="hero">{{ entry.hero | raw }}</figure>
+{%- endif %}
+<div class="prose">
+{{ entry.bodyHtml | raw }}
+</div>
+{% render 'author-box', authors: entry.authors %}
+</article>
+{% render 'related', items: entry.related %}
+{% endblock %}
